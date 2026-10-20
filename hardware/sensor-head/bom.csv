@@ -1,0 +1,19 @@
+Ref,Qty,Description,Manufacturer,MPN,LCSC,Link,EU_link,Fitted by,Notes
+U3,1,"24-bit 4-ch delta-sigma ADC, TSSOP-20",Texas Instruments,ADS131M04IPWR,C2862562,https://www.lcsc.com/product-detail/C2862562.html,https://eu.mouser.com/c/?q=ADS131M04IPWR,JLCPCB,TME: special order x250 only; DigiKey none until 03/2027; Mouser EU / TI store / LCSC in stock (2026-10-20)
+"U1,U2",2,"Dual RRIO CMOS op-amp, 10 MHz, 1 pA, SOIC-8",Microchip,MCP6022-I/SN,C34047,https://www.lcsc.com/product-detail/C34047.html,https://www.tme.eu/en/katalog/?art=MCP6022-I%2FSN,JLCPCB,U2 only with D2
+U4,1,"Ultra-low-noise LDO 3.3 V 250 mA, SOT-23-5",Texas Instruments,LP5907MFX-3.3/NOPB,C80670,https://www.lcsc.com/product-detail/C80670.html,https://www.tme.eu/en/details/lp5907mfx-3.3_nopb/ldo-fixed-voltage-regulators/texas-instruments/,JLCPCB,
+U5,1,"Sync buck 5 V 2 A, 3.8-32 V in, TSOT-26",Diodes Inc,AP63205WU-7,,https://www.digikey.com/en/products/detail/diodes-incorporated/AP63205WU-7/9858424,https://uk.farnell.com/diodes-inc/ap63205wu-7/switching-regulator-syn-buck-tsot/dp/3518308,JLCPCB,"L = 4.7 uH per datasheet; TME 0 stock, Farnell ~6k (2026-10-20)"
+U6,1,"3-axis inclinometer, SPI",Murata,SCL3300-D01,,https://uk.farnell.com/murata/scl3300-d01/inclinometer-90deg-digital/dp/3018435,https://de.farnell.com/en-DE/murata/scl3300-d01/mems-modul-3-achsen-neigungswinkelmesser/dp/3018435,JLCPCB or consigned,If not at LCSC: buy and send to JLCPCB
+U7,1,"RS-485 transceiver 3.3 V, +-18 kV IEC ESD, SOIC-8",Texas Instruments,THVD1450DR,C2671361,https://www.lcsc.com/product-detail/C2671361.html,https://www.tme.eu/en/details/thvd1450dr/rs232-rs422-rs485-integr-circ/texas-instruments/,JLCPCB,
+"D5,D6",2,"RS-485 TVS array -7/+12 V, SOT-23",Littelfuse,SM712-02HTG,C172881,https://www.lcsc.com/product-detail/C172881.html,https://www.tme.eu/en/details/sm712-02htg-lf/protection-diodes-arrays/littelfuse/sm712-02htg/,JLCPCB,One per cable pair
+D4,1,"TVS 18 V unidirectional, SMB",Littelfuse,SMBJ18A,,https://www.digikey.com/en/products/result?keywords=SMBJ18A,https://www.tme.eu/en/katalog/?art=SMBJ18A,JLCPCB,Any SMBJ18A
+D3,1,"Schottky 40 V 2 A, SMA",Diodes Inc,B240A-13-F,,https://www.digikey.com/en/products/result?keywords=B240A-13-F,https://www.tme.eu/en/details/b240a-13-f/smd-schottky-diodes/diodes-incorporated/,JLCPCB,Reverse polarity
+F1,1,"PTC resettable fuse 200 mA hold, 1812",Bourns,MF-MSMF020-2,C35456,https://www.lcsc.com/product-detail/C35456.html,https://www.tme.eu/en/details/mf-msmf020-2/smd-polymer-fuses/bourns/,JLCPCB,
+L1,1,"Inductor 4.7 uH, Isat >= 2.5 A, shielded ~5x5 mm",,,,,,JLCPCB,Choose from JLCPCB stock at KiCad stage
+D1,1,"Photodiode, visible (colour-corrected), 7.5 mm2, TO-5",Vishay,BPW21R,,https://uk.farnell.com/vishay/bpw21r/photodiode-565nm-to-5/dp/1045427,https://www.tme.eu/en/details/bpw21r/photodiodes/vishay/,You,Leads bent so it looks 30 deg up
+D2,0,"Photodiode, second field (optional)",Vishay,BPW21R,,https://uk.farnell.com/vishay/bpw21r/photodiode-565nm-to-5/dp/1045427,https://www.tme.eu/en/details/bpw21r/photodiodes/vishay/,You,Dual-field option
+M1,1,Raspberry Pi Pico 2 module,Raspberry Pi,Pico 2,,https://www.raspberrypi.com/products/raspberry-pi-pico-2/,https://tme.eu/en/details/sc1631/raspberry-pi-minicomputers/raspberry-pi/raspberry-pi-pico-2,You,Not the Pico 2 W
+J1,1,"RJ45 jack, shielded, right angle, THT",Amphenol,RJHSE-5380,,https://uk.farnell.com/amphenol/rjhse-5380/modular-jack-rj45-cat5-shielding/dp/1849916,https://www.tme.eu/en/details/rjhse-5380/rj-connectors/amphenol/,You or JLCPCB,
+R_F,2,Rf 270 kOhm 0.1 % thin film 0603 (value after bench test),,,,,,JLCPCB,FLAG: set after bench test
+C_F,2,Cf 33 pF C0G 0603,,,,,,JLCPCB,
+"R,C,FB,LED",~45,"Resistors/capacitors 0603-0805, ferrite beads, side-view LEDs",,,,,,JLCPCB,Exact list from KiCad schematic

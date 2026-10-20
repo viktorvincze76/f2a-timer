@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+host/logs/
+logs/
+firmware/build/
+sensor/bench/recordings/synthetic*
+.DS_Store
