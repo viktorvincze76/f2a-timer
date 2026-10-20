@@ -87,3 +87,12 @@ The old sensors no longer exist, so a new sensor is designed first.
 7. Optional: dual-slit sensor, wireless link, GPS clock calibration
 
 Original sensor concept and system: Göran Olsson, Stockholm (go-cl.se), 2000–2007.
+
+## License
+
+Copyright (C) 2026 Viktor Vincze and contributors.
+
+This project (software, firmware and hardware design files) is free software under the
+[GNU General Public License v3.0](LICENSE): you may use, study, modify and share it, and anyone who
+distributes a modified version must publish its source under the same license. That way, the code
+used to time official flights can always be inspected.
