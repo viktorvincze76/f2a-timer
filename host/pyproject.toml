@@ -11,6 +11,7 @@ dev = ["pytest"]
 
 [project.scripts]
 f2a-timer = "f2atimer.cli:main"
+f2a-contest = "f2atimer.contest_cli:main"
 
 [build-system]
 requires = ["setuptools>=61"]

@@ -7,3 +7,13 @@ logs/
 firmware/build/
 sensor/bench/recordings/synthetic*
 .DS_Store
+
+# Old DOS timing software and real contest data: never commit.
+# The program and DOS files are not ours to distribute; logs and contest files contain
+# competitors' names (GDPR). Test data must be anonymised: host/tools/anonymise_tt_log.py
+legacy/
+contests/
+TT[0-9]*.TXT
+NN*.TXT
+*.EXE
+*.exe
