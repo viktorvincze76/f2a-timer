@@ -32,12 +32,11 @@ def test_stray_pulse_rejected():
     assert timer.rejected_us == [LAP + 400_000]
 
 
-def test_missed_pass_split_keeps_total():
+def test_missed_pass_only_flagged():
     timer = LapTimer()
     feed(timer, [0, LAP, 2 * LAP, 4 * LAP + 1])
-    assert len(timer.laps) == 4
-    assert [lap.interpolated for lap in timer.laps] == [False, False, True, True]
-    assert sum(lap.time_us for lap in timer.laps) == 4 * LAP + 1
+    assert [lap.time_us for lap in timer.laps] == [LAP, LAP, 2 * LAP + 1]
+    assert [lap.suspect_missed for lap in timer.laps] == [False, False, True]
 
 
 @pytest.mark.parametrize("seed", range(20))
@@ -48,7 +47,6 @@ def test_simulated_flight(seed):
         msg = parse_line(line)
         if isinstance(msg, Edge) and msg.channel == "S" and msg.active:
             timer.add_pass(msg.t_us)
-    assert len(timer.laps) == 14
+    assert len(timer.laps) == 13  # one pass missed, not split automatically
     assert len(timer.rejected_us) == 1
-    assert sum(lap.interpolated for lap in timer.laps) == 2
-    assert timer.speed_over(1, 9) == pytest.approx(300, rel=0.01)
+    assert sum(lap.suspect_missed for lap in timer.laps) == 1

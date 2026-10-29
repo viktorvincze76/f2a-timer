@@ -76,8 +76,9 @@ def report(timer: LapTimer, edge: Edge, timed_laps: int) -> None:
     if edge.channel != SENSOR or not edge.active:
         return
     first = not timer.passes_us
-    for lap in timer.add_pass(edge.t_us):
-        note = "  (interpolated: missed pass)" if lap.interpolated else ""
+    lap = timer.add_pass(edge.t_us)
+    if lap:
+        note = "  WARNING: missed lap? (time doubled)" if lap.suspect_missed else ""
         print(f"{t:12.6f}  lap {lap.number:2d}  {lap.time_us / 1e6:8.4f} s  "
               f"{lap.speed_kmh(timer.lap_m):7.2f} km/h{note}")
     if first:

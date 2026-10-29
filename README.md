@@ -43,6 +43,7 @@ lap times are unaffected: events are queued and numbered, and a gap in the numbe
 - `docs/pcb-plan.md`: **final system PCBs** (sensor head SH-1, base station BS-1), parts list with order links
 - `hardware/*/bom.csv`: parts lists per board, ready for Mouser / DigiKey / LCSC BOM upload
 - `sensor/bench/`: capture and analysis scripts for the bench test; `firmware/bench_capture/` is its Pico firmware
+- `docs/legacy-software.md`: what the old DOS program (Transitrace TT) does, and what the new contest software keeps
 
 ## Try the host software (no hardware needed)
 
@@ -52,6 +53,21 @@ python3 -m venv .venv && .venv/bin/pip install -e '.[dev]'
 .venv/bin/f2a-timer --sim          # simulated 300 km/h flight in real time (--fast to skip waiting)
 .venv/bin/pytest
 ```
+
+## Contest files and results
+
+`f2a-contest` keeps a contest (competitors, every attempt, the judges' rulings) in one JSON file and prints the
+classification following the FAI rules: best speed, ties broken by the second and third best (4.1.18), team results
+(4.1.19), juniors, and a printable HTML results sheet.
+
+```sh
+.venv/bin/f2a-contest import-legacy ../legacy/TT2 --out ../contests     # old DOS logs -> contest files
+.venv/bin/f2a-contest results ../contests/<contest>.json --html results.html
+.venv/bin/f2a-contest flight  ../contests/<contest>.json 4   # laps of competitor 4
+```
+
+Contest files and the old logs contain competitors' names: they stay on the club computer and are ignored by git
+(GDPR). For tests, anonymise real logs with `host/tools/anonymise_tt_log.py`.
 
 ## With the Pico
 
@@ -82,7 +98,9 @@ The old sensors no longer exist, so a new sensor is designed first.
    (`docs/bench-test.md`); next is building it and measuring real sky and model signals
 3. Sensor and base station electronics: plan and parts list done (`docs/pcb-plan.md`); KiCad schematic after the bench test; then enclosure and firmware with on-sensor detection
 4. Field tests; compare against manual timing
-5. Contest software: F2A flight procedure, manual stopwatch entry, categories, printable flight reports
+5. Contest software: F2A flight procedure, manual stopwatch entry, categories, printable flight reports.
+   **Started:** FAI flight evaluation, contest files, results tables and import from the old software are done
+   (`docs/legacy-software.md`); next is the live contest screen
 6. GUI for an outdoor laptop or tablet
 7. Optional: dual-slit sensor, wireless link, GPS clock calibration
 
